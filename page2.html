@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>For My Love 🤍 | Valentine</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/2474bae6f3db47d1.css" />
+
+  <style>
+    /* Show all content */
+    .show-content .main-card-container,
+    .show-content .glass-card,
+    .show-content .sinhala-para,
+    .show-content .poem-box,
+    .show-content .signature-section,
+    .show-content .card-header,
+    .show-content .card-footer {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    /* Heart rain */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Music control styling */
+    .music-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased show-content" style="-webkit-user-select:none;user-select:none;-webkit-touch-callout:none">
+
+  <div class="valentine-wrapper">
+
+    <!-- Music -->
+   <audio id="bgMusic" preload="auto" autoplay loop muted>
+  <source src="images/සැරයටියෙන් අපි යනෙන තුරා  Sarayatiyen Api Yanena Thura  Cover  Lyrics  GO Channel 88.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const magicBtn = document.querySelector(".magic-btn");
+  const music = document.getElementById("bgMusic");
+
+  // Music autoplay with muted first
+  music.play().catch(err => {
+    console.log("Autoplay blocked, waiting for first click...");
+  });
+
+  // First user interaction unmute
+  const unmute = () => {
+    music.muted = false;
+    music.play().catch(()=>{});
+    document.removeEventListener("click", unmute);
+  };
+  document.addEventListener("click", unmute);
+
+  // Magic Touch + Heart rain
+  magicBtn.addEventListener("click", function () {
+    document.body.classList.add("magic-active");
+
+    const heartInterval = setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 150);
+
+    magicBtn.style.display = "none";
+
+    setTimeout(() => {
+      clearInterval(heartInterval);
+      magicBtn.style.display = "inline-block";
+    }, 7000);
+  });
+});
+</script>
+
+
+    <!-- MAGIC BUTTON -->
+    <button class="magic-btn">Magic Touch ✨</button>
+
+    <div class="music-control" id="musicCtrl">
+      <div class="visualizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <span class="music-text">PLAYING</span>
+    </div>
+
+    <div class="hearts-container"></div>
+    <div class="bg-canvas"></div>
+
+    <div class="main-card-container">
+      <div class="glass-card">
+
+        <header class="card-header">
+          <div class="date-badge">February 14, 2026 💕</div>
+          <h1 class="main-title">My Valentine Wish</h1>
+          <div class="for-text">For My Love 🌹</div>
+        </header>
+
+        <p class="sinhala-para">
+          මගේ ජීවිතේට හම්බවුන හරිම ලස්සනම තෑග්ග තමයි ඔයා... 💞
+        </p>
+
+        <p class="sinhala-para">
+          අපි අතරේ රහස් කියලා දෙයක් නැතිම තරම්🤍<br />
+          දුකේදීත් සැපේදීත් අපි හැමදාමත් ආදරෙන් ඉමු🥰
+        </p>
+
+        <p class="sinhala-para">
+          <b>ඔයාව මට ගොඩාක් වටිනවා.✨</b><br />
+          හැමදාමත් මට ඔයාව විශේෂයි.💖
+        </p>
+
+        <div class="poem-box">
+          <div class="poem-text">
+            හිනාවක් ගෙනෙන මතකයක් වගේ,<br />
+            හදවතට ආදරේ තැන්පත් කරපු<br />
+            මගේ ජීවිතේ ලස්සනම තෑග්ග ඒ ඔබයි🎁💘
+          </div>
+        </div>
+
+        <div class="signature-section">
+          <p class="forever-text">
+            Forever & Always, මුළු හදවතින්ම... 💗
+          </p>
+          <div class="signature-name">Your Beloved Partner🫂💖</div>
+        </div>
+
+        <footer class="card-footer">
+          @ Nethmina Nawanjana ✨
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MAGIC TOUCH + HEART RAIN SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const magicBtn = document.querySelector(".magic-btn");
+      const music = document.getElementById("bgMusic");
+
+      // Try autoplay on page load
+      if (music) {
+        music.play().catch(err => {
+          console.log("Autoplay blocked. Music will play on first click anywhere.");
+          const playOnce = () => {
+            music.play().catch(()=>{});
+            document.removeEventListener('click', playOnce);
+          };
+          document.addEventListener('click', playOnce);
+        });
+      }
+
+      magicBtn.addEventListener("click", function () {
+        document.body.classList.add("magic-active");
+
+        // Heart Rain
+        const heartInterval = setInterval(() => {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.innerHTML = "❤️";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+          heart.style.fontSize = Math.random() * 20 + 15 + "px";
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 5000);
+        }, 150);
+
+        // Hide button while hearts fall
+        magicBtn.style.display = "none";
+
+        // Stop heart rain and show button again after 7 seconds
+        setTimeout(() => {
+          clearInterval(heartInterval);
+          magicBtn.style.display = "inline-block";
+        }, 7000);
+
+        // Music keeps playing → do NOT pause
+      });
+    });
+  </script>
+
+</body>
+</html>
